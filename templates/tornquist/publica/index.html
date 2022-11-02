@@ -1,0 +1,40 @@
+{% extends './base.html' %}
+
+{% block titulo %}Tornquist{% endblock titulo %}
+
+
+{% block contenido %}
+    
+    <section class="categorias">        
+            
+        <div class="tarjeta">
+            <button>
+                <a href="{% url 'gastronomia' %}"><i class="fa-solid fa-utensils"></i></a>
+                <h3><b>GA</b>STRONOMIA</h3>                    
+            </button>
+        </div>
+
+        <div class="tarjeta">
+            <button>
+                <a href="{% url 'zonasAlojamientos' %}"><i class="fa-solid fa-bed"></i></a>
+                <h3><b>AL</b>OJAMIENTO</h3>
+            </button>                   
+            
+        </div>
+
+        <div class="tarjeta">
+            <button>
+            <a href="{% url 'actividades' %}"><i class="fa-solid fa-signs-post"></i></a>
+            <h3><b>AC</b>TIVIDADES</h3>                    
+            </button>    
+        </div>        
+
+        <div class="tarjeta">
+            <button>
+            <a href="{% url 'puntosInteres' %}"><i class="fa-solid fa-map-location-dot"></i></a>
+            <h3><b>PU</b>NTOS DE INTERÉS</h3>
+            </button>                       
+        </div>
+             
+    </section>
+{% endblock contenido %}
