@@ -9,6 +9,7 @@ body{
     
 }
 
+
 .background{
     position: absolute;
     top: 0;
@@ -29,6 +30,7 @@ body{
    grid-column-gap: 3vh;
    grid-row-gap: 3vh;
    align-items: center;
+   padding-top: 100px;
    
 
 }
@@ -81,6 +83,7 @@ body{
         display: flex;
         height: 60vh;
         justify-content: space-evenly;
+        padding-top: 90px;
 
     }
     .social{
@@ -89,10 +92,11 @@ body{
     .tarjeta button{
         width: 200px;
         
+        
     }
 }
 
-@media(max-width: 400px){
+@media(max-width: 460px){
     .categorias {
         display: flex;
         flex-direction: column;
