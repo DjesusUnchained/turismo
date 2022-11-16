@@ -1,6 +1,6 @@
 {% extends './base.html' %}
 
-{% block titulo %}Actividades{% endblock titulo %}
+{% block titulo %}Gastronomia{% endblock titulo %}
 {% block css %}
     {% load static %}
     <link rel="stylesheet" href="{% static '/tornquist/publica/css/zonasAlojamiento.css'%}?v={% now 'U' %}">
@@ -14,7 +14,7 @@
 
   <div class="card">
     <div class="face front">
-        {% load static %}<img src="{{restaurante.url_img}}"  alt="...">
+        <img src="{{restaurante.url_img.url}}"  alt="{{restaurante.nombre}}">
         <h3>{{restaurante.nombre}}</h3>
     </div>
 

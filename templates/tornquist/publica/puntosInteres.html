@@ -1,0 +1,46 @@
+{% extends './base.html' %}
+
+{% block titulo %}Puntos de Interes{% endblock titulo %}
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/tornquist/publica/css/zonasAlojamiento.css'%}?v={% now 'U' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/tornquist/publica/css/puntoInteres.css'%}?v={% now 'U' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+
+<section class="card-board">
+
+  {% for punto in puntosInteres %}
+
+  <div class="card">
+    <div class="face front">
+        <img src="{{punto.url_img.url}}"  alt="{{punto.nombre}}">
+        <h3>{{punto.nombre}}</h3>
+    </div>
+
+    <a href="tel:{{punto.telefono}}">
+      <div class="face back">
+        <h3>{{punto.nombre}}</h3>
+        <ul>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> - {{punto.ubicacion}}
+            </li>
+            
+            <li><i class="fas fa-phone"></i> - {{punto.telefono}}</li>
+            <li>
+              <i class="fas fa-house"></i> - {{punto.direccion}}
+            </li>
+            <li><i class="fas fa-envelope-open-text"></i> - {{punto.pagina_web}}</li>
+        </ul>
+      </div>
+    </a> 
+  </div> 
+
+  {% endfor %}
+         
+</section>
+
+{% endblock contenido %}
