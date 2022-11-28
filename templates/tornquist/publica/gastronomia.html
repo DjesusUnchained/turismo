@@ -11,31 +11,36 @@
 <section class="card-board">
 
   {% for restaurante in restaurantes %}
+    {% comment %} {% if not restaurante.baja %} {% endcomment %}
 
-  <div class="card">
-    <div class="face front">
-        <img src="{{restaurante.url_img.url}}"  alt="{{restaurante.nombre}}">
-        <h3>{{restaurante.nombre}}</h3>
-    </div>
+    <div class="card">
+      <div class="face front">
+          <img src="{{restaurante.url_img.url}}"  alt="{{restaurante.nombre}}">
+          <h3>{{restaurante.nombre}}</h3>
+      </div>
 
-    <a href="tel:{{restaurante.telefono}}">
+      
       <div class="face back">
         <h3>{{restaurante.nombre}}</h3>
         <ul>
             <li>
               <i class="fas fa-map-marker-alt"></i> - {{restaurante.ubicacion}}
             </li>
-            
-            <li><i class="fas fa-phone"></i> - {{restaurante.telefono}}</li>
+              
+            <a href="tel:{{restaurante.telefono}}">
+              <li><i class="fas fa-phone"></i> - {{restaurante.telefono}}</li>
+            </a>
             <li>
               <i class="fas fa-house"></i> - {{restaurante.direccion}}
             </li>
+            <a href="https://{{restaurante.pagina_web}}">
             <li><i class="fas fa-envelope-open-text"></i> - {{restaurante.pagina_web}}</li>
+            </a>
         </ul>
       </div>
-    </a> 
-  </div> 
-
+       
+    </div> 
+    {% comment %} {% endif %} {% endcomment %}
   {% endfor %}
          
 </section>

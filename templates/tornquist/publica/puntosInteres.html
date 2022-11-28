@@ -14,31 +14,36 @@
 <section class="card-board">
 
   {% for punto in puntosInteres %}
+    {% comment %} {% if not punto.baja %} {% endcomment %}
 
-  <div class="card">
-    <div class="face front">
-        <img src="{{punto.url_img.url}}"  alt="{{punto.nombre}}">
-        <h3>{{punto.nombre}}</h3>
-    </div>
+    <div class="card">
+      <div class="face front">
+          <img src="{{punto.url_img.url}}"  alt="{{punto.nombre}}">
+          <h3>{{punto.nombre}}</h3>
+      </div>
 
-    <a href="tel:{{punto.telefono}}">
+      
       <div class="face back">
         <h3>{{punto.nombre}}</h3>
         <ul>
             <li>
               <i class="fas fa-map-marker-alt"></i> - {{punto.ubicacion}}
             </li>
-            
-            <li><i class="fas fa-phone"></i> - {{punto.telefono}}</li>
+              
+            <a href="tel:{{punto.telefono}}">
+              <li><i class="fas fa-phone"></i> - {{punto.telefono}}</li>
+            </a>
             <li>
               <i class="fas fa-house"></i> - {{punto.direccion}}
             </li>
+            <a href="https://{{punto.pagina_web}}">
             <li><i class="fas fa-envelope-open-text"></i> - {{punto.pagina_web}}</li>
+            </a>
         </ul>
       </div>
-    </a> 
-  </div> 
-
+       
+    </div> 
+    {% comment %} {% endif %} {% endcomment %}
   {% endfor %}
          
 </section>

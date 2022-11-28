@@ -12,31 +12,36 @@
 <section class="card-board">
 
   {% for alojamiento in alojamientos %}
+    {% comment %} {% if not alojamiento.baja %} {% endcomment %}
 
-  <div class="card">
-    <div class="face front">
-        <img src="{{alojamiento.url_img.url}}"  alt="{{alojamiento.nombre}}">
-        <h3>{{alojamiento.nombre}}</h3>
-    </div>
+    <div class="card">
+      <div class="face front">
+          <img src="{{alojamiento.url_img.url}}"  alt="{{alojamiento.nombre}}">
+          <h3>{{alojamiento.nombre}}</h3>
+      </div>
 
-    <a href="tel:{{alojamiento.telefono}}">
+      
       <div class="face back">
         <h3>{{alojamiento.nombre}}</h3>
         <ul>
             <li>
               <i class="fas fa-map-marker-alt"></i> - {{alojamiento.ubicacion}}
             </li>
-            
-            <li><i class="fas fa-phone"></i> - {{alojamiento.telefono}}</li>
+              
+            <a href="tel:{{alojamiento.telefono}}">
+              <li><i class="fas fa-phone"></i> - {{alojamiento.telefono}}</li>
+            </a>
             <li>
               <i class="fas fa-house"></i> - {{alojamiento.direccion}}
             </li>
+            <a href="https://{{alojamiento.pagina_web}}">
             <li><i class="fas fa-envelope-open-text"></i> - {{alojamiento.pagina_web}}</li>
+            </a>
         </ul>
       </div>
-    </a> 
-  </div> 
-
+       
+    </div> 
+    {% comment %} {% endif %} {% endcomment %}
   {% endfor %}
          
 </section>

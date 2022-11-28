@@ -12,32 +12,37 @@
 <section class="card-board">
 
   {% for actividad in actividades %}
+    {% comment %} {% if not actividad.baja %} {% endcomment %}
 
-  <div class="card">
-    <div class="face front">
-        <img src="{{actividad.url_img.url}}"  alt="{{actividad.nombre}}">
-        <h3>{{actividad.nombre}}</h3>
-    </div>
+    <div class="card">
+      <div class="face front">
+          <img src="{{actividad.url_img.url}}"  alt="{{actividad.nombre}}">
+          <h3>{{actividad.nombre}}</h3>
+      </div>
 
-    <a href="tel:{{actividad.telefono}}">
+      
       <div class="face back">
         <h3>{{actividad.nombre}}</h3>
         <ul>
             <li>
               <i class="fas fa-map-marker-alt"></i> - {{actividad.ubicacion}}
             </li>
-            
-            <li><i class="fas fa-phone"></i> - {{actividad.telefono}}</li>
+              
+            <a href="tel:{{actividad.telefono}}">
+              <li><i class="fas fa-phone"></i> - {{actividad.telefono}}</li>
+            </a>
             <li>
               <i class="fas fa-house"></i> - {{actividad.direccion}}
             </li>
+            <a href="https://{{actividad.pagina_web}}">
             <li><i class="fas fa-envelope-open-text"></i> - {{actividad.pagina_web}}</li>
+            </a>
         </ul>
       </div>
-    </a> 
-  </div> 
-
+       
+    </div> 
+    {% comment %} {% endif %} {% endcomment %}
   {% endfor %}
          
-</section> 
+</section>
 {% endblock contenido %}
