@@ -3,6 +3,9 @@ from django.forms import ValidationError
 
 from .models import TipoConsulta, Consulta
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 
 class ContactoForm(forms.ModelForm):
 
@@ -74,3 +77,8 @@ class ContactoForm(forms.ModelForm):
     #     data = self.cleaned_data['asunto']
     #     return 'Asunto-'+data
 
+
+class RegistrarUsuarioForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username','email' , 'password1', 'password2']

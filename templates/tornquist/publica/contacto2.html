@@ -29,9 +29,11 @@
                 {% endfor %}
             </div>
           
-            <p class="block">
-            <button type="submit">Enviar</button>
-            </p>
+            <div class="center">
+              <button type="submit">Enviar</button>
+            </div>
+            
+            
             {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}" role="alert">
                         {{ message }} 

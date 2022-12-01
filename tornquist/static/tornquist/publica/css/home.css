@@ -9,6 +9,11 @@ body{
     
 }
 
+.botonwa {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
 
 .background{
     position: absolute;

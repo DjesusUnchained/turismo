@@ -9,6 +9,36 @@
 
 {% block contenido %}
 <section class="content showcase">
+  <div class="card-body">
+    <a name="" id="" class="btn btn-success" href="" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+    <!-- bs5-table-defaul -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consulta in consultas %}
+                <tr>
+                    <td>{{consulta.id}}</td>
+                    <td>{{consulta.nombre}}</td>
+                    <td>{{consulta.mensaje}}</td>
+                    <td>
+                        <a href="{% url 'editar' consulta.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
+                        {% comment %} <a href="{% url 'consultas_eliminar' consulta.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a> {% endcomment %}
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</section>
+
+
+<section class="content showcase">
     <h1 class="logo2"><b>CO</b>NTACTO</h1>
 
     <div class="contact-wrapper animated bounceInUp">
@@ -18,7 +48,7 @@
           <div>
             <p>
               <label>Nombre Completo</label>
-              <input type="text" name="fullname" id="name" />
+              <input type="text" name="fullname" id="name" value="{{consulta.nombre}}"/>
             </p>
 
             <p>
