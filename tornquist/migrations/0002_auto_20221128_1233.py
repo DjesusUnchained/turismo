@@ -46,7 +46,6 @@ class Migration(migrations.Migration):
                 ('telefono', models.CharField(max_length=150, verbose_name='telefono')),
                 ('email', models.EmailField(max_length=50, verbose_name='email')),
                 ('mensaje', models.CharField(max_length=400, verbose_name='mensaje')),
-                ('pendiente', models.BooleanField(default=0)),
                 ('asunto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tornquist.tipoconsulta', verbose_name='asunto')),
             ],
         ),
