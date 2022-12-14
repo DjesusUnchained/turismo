@@ -198,7 +198,8 @@ class Respuesta(models.Model):
         'tornquist/publica/email.html',
         {
             'username': consulta_cambio_estado.nombre,
-            'mensaje': self.respuesta
+            'mensaje': consulta_cambio_estado.mensaje,
+            'respuesta':self.respuesta
         }
         )
 
@@ -274,6 +275,21 @@ class RespuestaSolicitud(models.Model):
         solicitud_cambio_estado.estado_respuesta = self.estado_solicitud
         solicitud_cambio_estado.save()
         #LOGICA DE ENVIO DE MAIL
+
+        
+
+        # mail = create_mail(
+        # solicitud_cambio_estado,
+        # 'Respuesta a Solicitud Web Turismo Tornquist',
+        # 'tornquist/publica/email.html',
+        # {
+        #     'username': solicitud_cambio_estado.nombre,
+        #     'mensaje': self.respuesta,
+        #     'estado': solicitud_cambio_estado.estado_respuesta
+        # }
+        # )
+
+        # mail.send(fail_silently=False)
         
     
     def generar_registro(self, rubro, solicitud):
