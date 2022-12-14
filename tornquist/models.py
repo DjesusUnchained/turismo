@@ -194,7 +194,7 @@ class Respuesta(models.Model):
         
         mail = create_mail(
         consulta_cambio_estado.email,
-        'Respuesta a Solicitud Web Turismo Tornquist',
+        'Respuesta a Consulta Web Turismo Tornquist',
         'tornquist/publica/email.html',
         {
             'username': consulta_cambio_estado.nombre,
