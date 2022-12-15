@@ -1,7 +1,5 @@
 body{
-    background-color: black;
-    height: 100vh;
-    
+    background-color: black;  
 }
 
 .tarjeta button b {
@@ -11,7 +9,8 @@ body{
 
 .botonwa {
     position: fixed;
-    bottom: 40px;
+    z-index: 50;
+    bottom: 60px;
     right: 40px;
 }
 
