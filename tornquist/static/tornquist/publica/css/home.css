@@ -14,6 +14,11 @@ body{
     right: 40px;
 }
 
+.botonwa:hover {
+    transform: scale(1.2) translateY(-5px);
+    transition: .5s;
+}
+
 .background{
     position: absolute;
     top: 0;
