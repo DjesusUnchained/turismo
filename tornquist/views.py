@@ -118,6 +118,8 @@ class SolicitudView(FormView):
     
     def post(self,request,*args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
+        mail = self.request.user.email
+        form.instance.email_usuario = mail
         if form.is_valid():
             form.save()
             messages.success(request,'Hemos recibido tu solicitud, queda sujeta a aprobacion de un administrador.')

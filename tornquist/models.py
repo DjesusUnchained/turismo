@@ -10,6 +10,7 @@ from django.shortcuts import render
 
 from django.template.loader import get_template
 import threading
+from django.contrib.auth.models import User
 # Create your models here.
 
 def create_mail(user_mail, subject, template_name, context):
@@ -251,6 +252,7 @@ class Solicitud(models.Model):
     telefono = models.CharField(max_length=50) 
     imagen = models.ImageField(upload_to = carpetas_de_guardado, blank=True, editable=True, validators=[valid_extension])
     fecha = models.DateField(default=datetime.now, blank=True, editable=True) 
+    email_usuario = models.EmailField(max_length=50,)
 
     def __str__(self) -> str:
         return self.nombre
@@ -278,18 +280,18 @@ class RespuestaSolicitud(models.Model):
 
         
 
-        # mail = create_mail(
-        # solicitud_cambio_estado,
-        # 'Respuesta a Solicitud Web Turismo Tornquist',
-        # 'tornquist/publica/email.html',
-        # {
-        #     'username': solicitud_cambio_estado.nombre,
-        #     'mensaje': self.respuesta,
-        #     'estado': solicitud_cambio_estado.estado_respuesta
-        # }
-        # )
+        mail = create_mail(
+        solicitud_cambio_estado.email_usuario,
+        'Respuesta a Solicitud Web Turismo Tornquist',
+        'tornquist/publica/email_solicitud.html',
+        {
+            'mail_usuario': solicitud_cambio_estado.email_usuario,
+            'mensaje': self.respuesta,
+            'estado': solicitud_cambio_estado.estado_respuesta
+        }
+        )
 
-        # mail.send(fail_silently=False)
+        mail.send(fail_silently=False)
         
     
     def generar_registro(self, rubro, solicitud):
@@ -307,8 +309,8 @@ class RespuestaSolicitud(models.Model):
         instancia.ubicacion = solicitud.ubicacion
         instancia.telefono  = solicitud.telefono
         instancia.direccion = solicitud.direccion
-        instancia.sitio     = solicitud.sitio
-        instancia.imagen    = solicitud.imagen
+        instancia.pagina_web     = solicitud.sitio
+        instancia.url_img    = solicitud.imagen
         instancia.estado    = solicitud.estado_respuesta
         instancia.save()
 
