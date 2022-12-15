@@ -91,21 +91,7 @@ def registrarse(request):
     else:
         form = RegistrarUsuarioForm()
     return render(request, 'tornquist/publica/registrarse.html', {'form': form})
-
-# @login_required(login_url=settings.LOGIN_URL)
-# def solicitud(request):
-#     return render(request,'tornquist/publica/solicitud.html')
-
-# @method_decorator(login_required, name='dispatch')    
-# class SolicitudView(FormView):
-#     template_name = 'tornquist/publica/solicitud.html'
-#     form_class = SolicitudForm
-#     success_url = 'mensaje_enviado'
-
-#     def form_valid(self, form):
-#         form.save()
-#         return super().form_valid(form)
-        
+      
 @method_decorator(login_required, name='dispatch')    
 class SolicitudView(FormView):
     template_name = 'tornquist/publica/solicitud.html'
